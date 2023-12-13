@@ -362,33 +362,25 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiBlogPostBlogPost extends Schema.CollectionType {
-  collectionName: 'blog_posts';
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
   info: {
-    singularName: 'blog-post';
-    pluralName: 'blog-posts';
-    displayName: 'Blog Post';
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    test: Attribute.Component<'text.display-text'>;
+    posts: Attribute.Component<'posts.container'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-post.blog-post',
-      'oneToOne',
-      'admin::user'
-    > &
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-post.blog-post',
-      'oneToOne',
-      'admin::user'
-    > &
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -718,7 +710,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::home.home': ApiHomeHome;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -9,6 +9,7 @@ interface Props {
 }
 
 const Blog: NextPage<Props> = ({blogs}) => {
+    console.log(blogs);
     return (<>
             <p>About Page</p>
             <Nav blogs={blogs}/>
@@ -18,7 +19,7 @@ const Blog: NextPage<Props> = ({blogs}) => {
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const {data} = await client.query({query: LIST_BLOG})
-    const blogs: IBlog[] = data.blogPosts.data;
+    const blogs: IBlog[] = data.postBlogs.data;
 
     return {
         props: {

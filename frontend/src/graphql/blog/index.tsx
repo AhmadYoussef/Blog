@@ -2,11 +2,38 @@ import {gql} from "@apollo/client";
 
 export const LIST_BLOG = gql(`
 query {
-  blogPosts {
-    data {
-      id
-      attributes {
-        title
+  postBlogs {
+   data{
+     id
+      attributes{
+        Posts {
+          id
+          post{
+            id
+            title
+            description
+            image{
+              data {
+                id
+              attributes {
+                  name
+                  alternativeText
+                  caption
+                  width
+                  height
+                  formats
+                  hash
+                  ext
+                  mime
+                  size
+                  url
+                  previewUrl
+                  provider_metadata
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -15,13 +42,20 @@ query {
 
 export const SINGLE_BLOG = gql(`
 query getId($id: ID){
-  blogPosts(filters: {id: {eq: $id}}) {
+blogPost(id: $id) {
     data {
       id
       attributes {
-        title
-        description
-        body
+        Posts{
+          Title
+          Description
+          Image {
+            data{
+              attributes {name alternativeText caption width height formats hash ext  mime size url previewUrl provider_metadata
+              }
+            }
+          }
+        }
       }
     }
   }

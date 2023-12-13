@@ -13,7 +13,7 @@ const Index: NextPage<Props> = ({blogs}) => {
                 return (
                     <div key={i}>
                         <NavItem
-                            title={blog.attributes.title}
+                            title={blog.attributes?.title}
                             isClickable={true}
                             blogId={blog.id}
                         />

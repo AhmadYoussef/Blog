@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_posts_containers",
+  "info": {
+    "displayName": "container",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "post": {
+      "type": "component",
+      "repeatable": true,
+      "component": "posts.item"
+    }
+  }
+}
