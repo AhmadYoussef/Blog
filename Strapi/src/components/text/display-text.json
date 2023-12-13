@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_text_display_texts",
+  "info": {
+    "displayName": "DisplayText",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "blocks"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "blocks"
+    }
+  }
+}
